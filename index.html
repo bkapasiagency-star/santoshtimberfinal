@@ -105,7 +105,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ========= HERO ========= */
 #hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:-10%;background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85');background-size:cover;background-position:center;filter:brightness(0.55) saturate(1.1)}
+.hero-bg{position:absolute;inset:-10%;background-image:url('https://images.unsplash.com/photo-1542621334-a254cf47733d?w=1920&q=85');background-size:cover;background-position:center;filter:brightness(0.55) saturate(1.1)}
 .hero-overlay-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(250,250,248,0.91) 0%,rgba(248,246,243,0.82) 50%,rgba(250,250,248,0.91) 100%)}
 .hero-grain{position:absolute;inset:0;background-image:repeating-linear-gradient(88deg,transparent,transparent 3px,rgba(50,100,70,0.02) 3px,rgba(50,100,70,0.02) 4px),repeating-linear-gradient(2deg,transparent,transparent 80px,rgba(50,100,70,0.012) 80px,rgba(50,100,70,0.012) 81px);z-index:2}
 .hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(250,250,248,0.52) 100%);z-index:2}
@@ -157,16 +157,6 @@ section{position:relative;z-index:2}
 .about-text{padding-top:10px}
 .about-lead{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;line-height:1.35;color:var(--cream);margin-bottom:2rem;font-style:normal}
 .about-body{font-size:0.9rem;line-height:2;color:rgba(26,17,10,0.7);margin-bottom:1.2rem;font-weight:400}
-.about-philosophy{margin-top:2.5rem;padding:2rem;border:1px solid var(--border);background:rgba(58,110,78,0.05)}
-.philosophy-title{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
-.philosophy-pills{display:flex;flex-wrap:wrap;gap:8px}
-.philosophy-pill{padding:7px 18px;border:1px solid var(--border);font-size:0.72rem;letter-spacing:0.1em;color:var(--cream-dark);font-weight:400;background:#f8f6f3}
-.about-timeline{margin-top:3rem}
-.timeline-title{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
-.timeline-item{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:1.3rem 0;border-bottom:1px solid var(--border);align-items:center}
-.timeline-year{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);font-weight:500}
-.timeline-event{font-size:0.85rem;color:rgba(26,17,10,0.68);line-height:1.55;font-weight:400}
-
 /* ========= TRUST STRIP ========= */
 .trust-strip{background:var(--gold);padding:22px 5%;overflow:hidden}
 .trust-strip-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:2rem;justify-content:center;flex-wrap:wrap;row-gap:12px}
@@ -195,7 +185,10 @@ section{position:relative;z-index:2}
 .category-item.open .cat-num,.category-item:hover .cat-num{opacity:0.7}
 .cat-title-wrap{display:flex;flex-direction:column}
 .cat-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--cream);line-height:1.1}
-.cat-meta{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);margin-top:5px;font-weight:400}
+.cat-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;align-items:center}
+.cat-badge{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(61,122,86,0.3);padding:3px 10px;font-weight:500;white-space:nowrap;background:rgba(61,122,86,0.05);transition:all 0.25s}
+.category-header:hover .cat-badge{border-color:rgba(61,122,86,0.6);background:rgba(61,122,86,0.1)}
+.category-item.open .cat-badge{background:rgba(61,122,86,0.12);border-color:var(--gold)}
 .cat-toggle{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.75rem;transition:all 0.4s var(--ease-luxury);flex-shrink:0}
 .category-item.open .cat-toggle{background:var(--gold);color:#fff;border-color:var(--gold);transform:rotate(45deg)}
 .category-body{max-height:0;overflow:hidden;transition:max-height 0.7s cubic-bezier(0.16,1,0.3,1)}
@@ -381,9 +374,9 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
   body{cursor:auto}
   .cursor-dot,.cursor-ring{display:none}
   /* Hero: switch to auto height so content is never clipped */
-  #hero{height:auto;min-height:100svh;align-items:flex-start;overflow:visible}
-  .hero-bg{position:fixed;inset:0;height:100svh}
-  .hero-overlay-grad,.hero-grain,.hero-vignette{position:fixed;inset:0;height:100svh}
+  #hero{height:auto;min-height:100svh;align-items:flex-start;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;height:100%}
+  .hero-overlay-grad,.hero-grain,.hero-vignette{position:absolute;inset:0;height:100%}
   .hero-content{padding:110px 5% 5rem}
   .hero-content-inner{padding-bottom:1.5rem}
   .hero-scroll{display:none}
@@ -398,6 +391,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
   .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
   .gallery-item:nth-child(5){grid-column:span 2}
   .footer-top{grid-template-columns:1fr;gap:2.5rem}
+  footer{padding-bottom:5.5rem}
   .floating-ctas{display:none}
   .mobile-sticky-bar{display:block}
   .about-img-accent{display:none}
@@ -451,7 +445,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-monogram"><span>ST</span></div>
-  <div class="loader-name">Santosh <em>Timber</em></div>
+  <div class="loader-name">Santosh <em>Timbers</em></div>
   <div class="loader-line"><div class="loader-progress" id="loaderProgress"></div></div>
   <div class="loader-label">Curating Timber Excellence</div>
 </div>
@@ -464,7 +458,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
     <div class="nav-logo-mark"><span>ST</span></div>
-    <span class="nav-logo-text">Santosh <em>Timber</em></span>
+    <span class="nav-logo-text">Santosh <em>Timbers</em></span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -547,14 +541,14 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
       <div class="about-badge"><span class="about-badge-num">100+</span><span class="about-badge-text">Yrs Legacy</span></div>
       <div class="about-slider" id="aboutSlider">
         <div class="about-slides" id="aboutSlides">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Timber excellence">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1595514535116-d6e21b2e91f0?w=800&q=80" alt="Premium logs">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&q=80" alt="Hardwood collection">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Oak planks">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Timber yard">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=800&q=80" alt="Wood stacks">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80" alt="Wood grain">
-          <img class="about-slide-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Luxury interior">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80" alt="Timber excellence">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?w=800&q=80" alt="Premium logs">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80" alt="Hardwood collection">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&q=80" alt="Oak planks">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80" alt="Timber yard">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1549558549-415fe4c37b60?w=800&q=80" alt="Wood stacks">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Wood grain">
+          <img class="about-slide-img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80" alt="Luxury interior">
         </div>
         <button class="slider-btn slider-prev" onclick="slideAbout(-1)">&#8249;</button>
         <button class="slider-btn slider-next" onclick="slideAbout(1)">&#8250;</button>
@@ -664,12 +658,6 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
           <text x="18" y="12" font-family="Jost" font-size="10" fill="rgba(245,239,231,0.5)" letter-spacing="1">SOURCING LOCATIONS</text>
         </g>
       </svg>
-    </div>
-    <div class="map-stats reveal">
-      <div class="map-stat"><span class="map-stat-num" data-count="20">0</span><span class="map-stat-label">Source Countries</span></div>
-      <div class="map-stat"><span class="map-stat-num" data-count="4">0</span><span class="map-stat-label">Continents</span></div>
-      <div class="map-stat"><span class="map-stat-num" data-count="8">0</span><span class="map-stat-label">Wood Species</span></div>
-      <div class="map-stat"><span class="map-stat-num" data-count="50">0</span><span class="map-stat-label">K+ CBM Annually</span></div>
     </div>
     <div class="continent-groups reveal">
       <div class="continent-row">
@@ -803,12 +791,12 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80" alt="Timber logs at yard">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?w=900&q=80" alt="Timber logs at yard">
         <div class="gallery-overlay"><div><div class="gallery-caption">Premium Timber Yard</div><div class="gallery-caption-sub">Mumbai, India</div></div></div>
         <div class="gallery-shine"></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" alt="Wood grain closeup">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=80" alt="Wood grain closeup">
         <div class="gallery-overlay"><div><div class="gallery-caption">Burma Teak Grain</div><div class="gallery-caption-sub">Ultra Premium Grade</div></div></div>
         <div class="gallery-shine"></div>
       </div>
@@ -823,7 +811,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
         <div class="gallery-shine"></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=80" alt="Forest sourcing">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Forest sourcing">
         <div class="gallery-overlay"><div><div class="gallery-caption">Forest Sourcing</div><div class="gallery-caption-sub">Direct from Origin</div></div></div>
         <div class="gallery-shine"></div>
       </div>
@@ -833,7 +821,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
         <div class="gallery-shine"></div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Warehouse">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=600&q=80" alt="Warehouse">
         <div class="gallery-overlay"><div><div class="gallery-caption">Our Warehouse</div><div class="gallery-caption-sub">50,000+ CBM Capacity</div></div></div>
         <div class="gallery-shine"></div>
       </div>
@@ -917,7 +905,7 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">Santosh <em>Timber</em></div>
+        <div class="footer-logo">Santosh <em>Timbers</em></div>
         <p class="footer-tagline">One of India's leading timber importers and stockists of KD Seasoned Dry Wood. Family owned legacy business since 5 generations.</p>
         <div class="footer-socials">
           <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -980,8 +968,8 @@ footer{background:#f5f1ed;padding:6rem 5% 2.5rem;border-top:1px solid var(--bord
 <script>
 /* ===== PRODUCT DATA ===== */
 const PRODUCT_DATA=[
-{id:1,name:"Teak",meta:"6 Sub-categories · Durable Premium Hardwood · Asia, Africa, Latin America",subcats:[
-  {name:"Burma Teak",origins:[],products:[{name:"Burma Teak",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",badge:"Ultra Premium",desc:"Globally renowned for its rich golden-brown appearance, natural oil content and exceptional durability, Burma Teak represents one of the finest luxury hardwoods in the world.",bestFor:"Luxury furniture, yacht decking, high-end interiors, premium doors",origin:"Myanmar (Burma)",grain:"Straight to slightly interlocked, very fine",dur:5}]},
+{id:1,name:"Teak",meta:"Burma Teak|African Super Premium|African Premium|African Commercial|Latin American|Asian",subcats:[
+  {name:"Burma Teak",origins:[],products:[{name:"Burma Teak",img:"https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=75",badge:"Ultra Premium",desc:"Globally renowned for its rich golden-brown appearance, natural oil content and exceptional durability, Burma Teak represents one of the finest luxury hardwoods in the world.",bestFor:"Luxury furniture, yacht decking, high-end interiors, premium doors",origin:"Myanmar (Burma)",grain:"Straight to slightly interlocked, very fine",dur:5}]},
   {name:"African Super Premium Teak",origins:["Tanzania (Tanga & Turiani)","ONAB (Benin)","ODAF (Togo)","Cameroon","Angola","Sudan"],products:[
     {name:"Tanzania Teak",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75",badge:"Super Premium",desc:"Tanzania's Tanga & Turiani regions yield some of Africa's finest teak. Dense grain with warm golden hues and outstanding weather resistance makes it a prized luxury hardwood.",bestFor:"High-end furniture, decking, architectural flooring, marine applications",origin:"Tanzania",grain:"Uniform, fine grain",dur:5},
     {name:"ONAB Teak — Benin",img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=75",badge:"Super Premium",desc:"ONAB-certified teak from Benin's managed plantations. Exceptional consistency and quality controlled at source with rigorous grading standards. Highly sought-after grade.",bestFor:"Premium flooring, furniture, architectural millwork",origin:"Benin",grain:"Even, straight grain",dur:5},
@@ -1004,41 +992,41 @@ const PRODUCT_DATA=[
     {name:"Brazil Teak",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75",badge:"Premium",desc:"Brazilian teak offers excellent strength and attractive golden-brown coloring. Sustainable plantation sources ensure responsible supply chain integrity.",bestFor:"Construction, furniture, flooring, decking",origin:"Brazil",grain:"Straight to wavy grain",dur:4}
   ]},
   {name:"Asian Teak",origins:["MP and CP Teak (India)","Laos Teak"],products:[
-    {name:"MP & CP Teak",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",badge:"Indian Premium",desc:"Teak from Madhya Pradesh and Central Provinces — some of India's finest grown teak with exceptional hardness, natural oils and legendary durability.",bestFor:"Premium furniture, carving, luxury interiors, temple woodwork",origin:"Central India (MP/CP)",grain:"Straight, fine texture",dur:5},
+    {name:"MP & CP Teak",img:"https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=75",badge:"Indian Premium",desc:"Teak from Madhya Pradesh and Central Provinces — some of India's finest grown teak with exceptional hardness, natural oils and legendary durability.",bestFor:"Premium furniture, carving, luxury interiors, temple woodwork",origin:"Central India (MP/CP)",grain:"Straight, fine texture",dur:5},
     {name:"Laos Teak",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75",badge:"Premium",desc:"Old-growth Laotian teak with deep, rich coloring and exceptional oil content. Highly prized for density and durability in the most demanding applications.",bestFor:"Yacht decking, luxury furniture, outdoor heavy-duty use",origin:"Laos",grain:"Slightly interlocked, medium",dur:5}
   ]}
 ]},
-{id:2,name:"Pine & Other Softwoods",meta:"6 Varieties · Versatile Softwood · Global",products:[
+{id:2,name:"Pine & Other Softwoods",meta:"American Pine|New Zealand Pine|German Pine|African Pine|Uruguay Pine|Argentina Pine",products:[
   {name:"American Pine",img:"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75",badge:"Softwood",desc:"High-grade American Pine known for its light, straight grain and excellent workability. The premier versatile softwood for construction and fine woodworking.",bestFor:"Construction, furniture, flooring, moldings",origin:"USA",grain:"Straight, even grain",dur:2},
   {name:"New Zealand Pine",img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=75",badge:"Softwood",desc:"Sustainably grown Radiata Pine from New Zealand. Uniform grain and excellent stability — ideal for engineered products, furniture and construction.",bestFor:"Construction, furniture, MDF, plywood, joinery",origin:"New Zealand",grain:"Fine, straight grain",dur:2},
   {name:"German Pine",img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=75",badge:"Premium Softwood",desc:"European Scots Pine from certified German forests. Superior density and resin content with beautiful reddish-brown heartwood prized for quality joinery.",bestFor:"High-end joinery, furniture, premium flooring",origin:"Germany",grain:"Fine, straight grain",dur:3},
   {name:"African Pine",img:"https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&q=75",badge:"Softwood",desc:"African Pine from managed plantations offering good strength and versatility. Widely used in construction and interior applications across markets.",bestFor:"Construction, furniture, packaging, interior work",origin:"South Africa",grain:"Straight, medium grain",dur:2},
   {name:"Uruguay Pine",img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=75",badge:"Softwood",desc:"Plantation Radiata Pine from Uruguay, sustainably managed with consistent quality and excellent dimensional stability for a diverse range of uses.",bestFor:"Furniture, construction, flooring, packaging",origin:"Uruguay",grain:"Straight, fine",dur:2},
-  {name:"Argentina Pine",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",badge:"Softwood",desc:"Argentine plantation pine offering reliable quality for a range of industrial and commercial woodworking applications at excellent value.",bestFor:"Construction, furniture, joinery, industrial use",origin:"Argentina",grain:"Straight grain",dur:2}
+  {name:"Argentina Pine",img:"https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=75",badge:"Softwood",desc:"Argentine plantation pine offering reliable quality for a range of industrial and commercial woodworking applications at excellent value.",bestFor:"Construction, furniture, joinery, industrial use",origin:"Argentina",grain:"Straight grain",dur:2}
 ]},
-{id:3,name:"Oak",meta:"3 Varieties · Timeless Hardwood · Europe & North America",products:[
+{id:3,name:"Oak",meta:"European Oak|American White Oak|American Red Oak",products:[
   {name:"European Oak",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75",badge:"Premium",desc:"The gold standard of hardwoods. European Oak is prized for its distinctive ray-fleck figure, warm honey tones and extraordinary durability that deepens beautifully with age.",bestFor:"Premium flooring, furniture, wine barrels, architectural millwork, cabinetry",origin:"France, Germany, Eastern Europe",grain:"Coarse, prominent medullary rays",dur:4},
   {name:"American White Oak",img:"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75",badge:"Premium",desc:"Revered for its tight, closed grain and excellent rot resistance. American White Oak delivers stunning beauty and remarkable performance in demanding environments.",bestFor:"Flooring, furniture, cabinets, cooperage, boat building",origin:"Eastern USA",grain:"Straight, coarse grain",dur:4},
   {name:"American Red Oak",img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=75",badge:"Premium",desc:"Bold and characterful, American Red Oak offers warm reddish tones and a striking grain pattern. One of the most widely used and loved hardwoods in the world.",bestFor:"Flooring, furniture, cabinetry, millwork, interior paneling",origin:"Eastern & Central USA",grain:"Open, coarse grain",dur:3}
 ]},
-{id:4,name:"White Ash",meta:"Exceptional Hardwood · North America",products:[
+{id:4,name:"White Ash",meta:"European|American",products:[
   {name:"White Ash",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75",badge:"Premium",desc:"White Ash is celebrated for its exceptional shock resistance, pale cream color and beautiful straight grain. A favorite for sporting goods and premium furniture worldwide.",bestFor:"Sports equipment, premium furniture, flooring, tool handles, musical instruments",origin:"USA & Canada",grain:"Straight, coarse grain",dur:4}
 ]},
-{id:5,name:"Steamed Beech",meta:"European Hardwood · Central & Eastern Europe",products:[
+{id:5,name:"Steamed Beech",meta:"European",products:[
   {name:"Steamed Beech",img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=75",badge:"Premium",desc:"The steaming process gives Beech its distinctive warm reddish-pink tone and significantly improves stability. Excellent choice for bentwood furniture and high-traffic flooring.",bestFor:"Bentwood furniture, flooring, kitchen utensils, cabinetry, school furniture",origin:"Central & Eastern Europe",grain:"Fine, straight to interlocked",dur:3}
 ]},
-{id:6,name:"Black Walnut",meta:"Ultra-Premium Hardwood · North America",products:[
+{id:6,name:"Black Walnut",meta:"American",products:[
   {name:"American Black Walnut",img:"https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&q=75",badge:"Ultra Premium",desc:"The crown jewel of American hardwoods. Black Walnut's rich chocolate-brown heartwood, fine grain and natural luster make it the most coveted wood for luxury furniture and premium applications.",bestFor:"Luxury furniture, gun stocks, premium flooring, architectural paneling, artistic pieces",origin:"Eastern & Central USA",grain:"Straight to wavy, fine texture",dur:4}
 ]},
-{id:7,name:"Other Temperate Woods",meta:"6 Specialty Woods · Global",products:[
+{id:7,name:"Other Temperate Woods",meta:"Maple|Sycamore|Chestnut|Cedar|Elm|Burl Wood|Cherry Wood",products:[
   {name:"Maple",img:"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75",badge:"Specialty",desc:"Hard Maple offers exceptional hardness and creamy white color — ideal for dance floors and high-traffic surfaces. Sycamore adds exotic figured patterns and pale elegance.",bestFor:"Dance floors, butcher blocks, fine furniture, musical instruments, flooring",origin:"USA, Canada, Europe",grain:"Fine, straight to curly figure",dur:4},
   {name:"Chestnut",img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=75",badge:"Specialty",desc:"Warm brown tones and rustic character make Chestnut prized for antique reproductions. Its open grain gives a distinctive aged and traditional appearance loved by craftspeople.",bestFor:"Antique furniture, traditional joinery, decorative elements, restoration work",origin:"Europe, USA",grain:"Coarse, open grain",dur:3},
   {name:"Cedar",img:"https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=75",badge:"Aromatic",desc:"Prized for natural aromatic properties and outstanding resistance to insects and decay. Cedar is the premier choice for closets, chests, outdoor cladding and boat building.",bestFor:"Closet linings, chests, outdoor furniture, wall cladding, boat building",origin:"USA, Canada",grain:"Straight, fine to medium",dur:4},
-  {name:"Elm",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",badge:"Specialty",desc:"Elm's interlocked grain creates natural resistance to splitting, making it invaluable for demanding structural and artistic applications with beautiful irregular figure.",bestFor:"Furniture, wheel hubs, artistic pieces, veneer, decorative panels",origin:"Europe, USA",grain:"Interlocked, irregular",dur:3},
+  {name:"Elm",img:"https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=75",badge:"Specialty",desc:"Elm's interlocked grain creates natural resistance to splitting, making it invaluable for demanding structural and artistic applications with beautiful irregular figure.",bestFor:"Furniture, wheel hubs, artistic pieces, veneer, decorative panels",origin:"Europe, USA",grain:"Interlocked, irregular",dur:3},
   {name:"Burl Wood",img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=75",badge:"Ultra Rare",desc:"Nature's most spectacular wood art. Burl's swirling, unpredictable grain patterns make each piece completely unique — prized by collectors and luxury furniture connoisseurs worldwide.",bestFor:"Luxury veneers, decorative panels, artistic pieces, collector items, jewellery boxes",origin:"Various (Oak, Walnut, Myrtle Burl)",grain:"Highly figured, swirling",dur:3},
   {name:"Cherry Wood",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75",badge:"Premium",desc:"American Cherry is celebrated for its warm reddish-brown color that deepens beautifully with age and light exposure. Fine grain that responds exquisitely to hand-finishing.",bestFor:"Fine furniture, cabinetry, paneling, musical instruments, heritage restoration",origin:"Eastern USA",grain:"Fine, straight to slightly wavy",dur:3}
 ]},
-{id:8,name:"Other Tropical Woods",meta:"6 Specialty Tropicals · Asia & Africa",products:[
+{id:8,name:"Other Tropical Woods",meta:"Meranti|Rosewood|Black Sheesham|Sal Wood|Mahogany|Afromosia",products:[
   {name:"Meranti",img:"https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=75",badge:"Tropical",desc:"A versatile tropical hardwood from Southeast Asia, Meranti offers good strength and a pleasant reddish-brown color — excellent for construction and interior joinery.",bestFor:"Plywood, joinery, furniture, light construction, interior work",origin:"Malaysia, Indonesia, Philippines",grain:"Interlocked, coarse",dur:3},
   {name:"Rosewood",img:"https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=600&q=75",badge:"Luxury",desc:"Among the world's most prized woods. Rosewood's rich dark tones, fine grain and natural fragrance make it legendary in luxury furniture and premium musical instruments.",bestFor:"Luxury furniture, musical instruments, decorative items, premium veneer",origin:"Brazil, India, Southeast Asia",grain:"Straight to wavy, fine",dur:5},
   {name:"East Indian Rosewood — Black Sheesham",img:"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=75",badge:"Luxury",desc:"India's heritage luxury hardwood. Dramatic dark streaking on golden-brown background with excellent natural oils providing outstanding durability and a timeless appearance.",bestFor:"Premium furniture, musical instruments, carved panels, luxury interiors",origin:"India, Sri Lanka",grain:"Interlocked, fine texture",dur:5},
@@ -1102,7 +1090,7 @@ function buildCats(){
           <span class="cat-num">0${c.id}</span>
           <div class="cat-title-wrap">
             <div class="cat-name">${c.name}</div>
-            <div class="cat-meta">${c.meta}</div>
+            <div class="cat-meta">${c.meta.split('|').map(s=>`<span class="cat-badge">${s}</span>`).join('')}</div>
           </div>
         </div>
         <div class="cat-toggle"><i class="fas fa-plus"></i></div>
